@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Coin – Smart Recycling Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.umd.js"></script>
+  <style>
+    :root{
+      --green:#1b7f5c;
+      --green-light:#2fbf71;
+      --bg:#f4f9f7;
+      --dark:#1f2d2b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;}
+    body{background:var(--bg);color:var(--dark);overflow-x:hidden;}
+
+    /* NAVBAR */
+    nav{
+      position:fixed;top:0;left:0;width:100%;background:white;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 40px;box-shadow:0 4px 15px rgba(0,0,0,.08);z-index:1000;
+    }
+    nav h2{color:var(--green)}
+    nav a{margin-left:25px;text-decoration:none;color:#333;font-weight:500}
+
+    /* HERO */
+    header{
+      height:100vh;display:flex;align-items:center;justify-content:space-between;
+      padding:120px 60px;background:linear-gradient(135deg,var(--green),var(--green-light));color:white;
+    }
+    header h1{font-size:52px;line-height:1.2}
+    header p{margin:20px 0;font-size:18px;max-width:480px}
+    .cta{padding:14px 32px;border-radius:40px;border:none;font-size:16px;font-weight:600;cursor:pointer;background:white;color:var(--green)}
+    .hero-box{
+      background:white;border-radius:24px;padding:30px;width:320px;color:#333;
+      box-shadow:0 25px 60px rgba(0,0,0,.25)
+    }
+
+    /* SECTIONS */
+    section{padding:100px 60px;max-width:1300px;margin:auto}
+    h2{text-align:center;font-size:36px;margin-bottom:60px;color:var(--green)}
+
+    /* HOW IT WORKS */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+    .step{
+      background:white;padding:30px;border-radius:22px;text-align:center;
+      transition:.4s;box-shadow:0 15px 40px rgba(0,0,0,.08)
+    }
+    .step:hover{transform:translateY(-10px)}
+    .step span{font-size:40px}
+
+    /* COUNTER */
+    .impact{background:#e9f7f0;border-radius:40px}
+    .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
+    .impact-box{background:white;padding:30px;border-radius:24px}
+    .impact-box h3{font-size:34px;color:var(--green)}
+
+    /* REWARDS */
+    .rewards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+    .reward{
+      background:white;border-radius:24px;padding:25px;text-align:center;
+      transition:.4s;box-shadow:0 12px 35px rgba(0,0,0,.08)
+    }
+    .reward:hover{transform:scale(1.05)}
+
+    /* FOOTER */
+    footer{background:var(--green);color:white;text-align:center;padding:30px;margin-top:80px}
+
+    @media(max-width:900px){
+      header{flex-direction:column;text-align:center}
+      header h1{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h2>Green Coin</h2>
+  <div>
+    <a href="#how">How it works</a>
+    <a href="#impact">Impact</a>
+    <a href="#rewards">Rewards</a>
+  </div>
+</nav>
+
+<header>
+  <div>
+    <h1>Recycle Smart.<br>Earn Green Coins.</h1>
+    <p>Turn recyclable waste into real rewards using smart Green Coin machines placed across the city.</p>
+    <button class="cta">Locate a Machine</button>
+  </div>
+  <div class="hero-box">
+    <h3>Live Wallet</h3>
+    <p>Coins Earned Today</p>
+    <h1>128 🪙</h1>
+    <small>Updated in real time</small>
+  </div>
+</header>
+
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step"><span>♻️</span><h3>Collect</h3><p>Gather recyclable waste</p></div>
+    <div class="step"><span>🏧</span><h3>Insert</h3><p>Use Green Coin Printer</p></div>
+    <div class="step"><span>🪙</span><h3>Earn</h3><p>Coins added instantly</p></div>
+    <div class="step"><span>🎁</span><h3>Redeem</h3><p>Rewards & donations</p></div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <h2>Environmental Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-box"><h3 id="count1">0</h3><p>Items Recycled</p></div>
+    <div class="impact-box"><h3 id="count2">0</h3><p>CO₂ Reduced (kg)</p></div>
+    <div class="impact-box"><h3 id="count3">0</h3><p>Trees Saved</p></div>
+  </div>
+</section>
+
+<section id="rewards">
+  <h2>Rewards Store</h2>
+  <div class="rewards">
+    <div class="reward">☕ Coffee Vouchers</div>
+    <div class="reward">🛍 Eco Products</div>
+    <div class="reward">🚇 Transport Credits</div>
+    <div class="reward">🌳 Tree Plantation</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Green Coin • Smart Recycling Ecosystem
+</footer>
+
+<script>
+  const animate = (id, max) => {
+    let i = 0;
+    const el = document.getElementById(id);
+    const interval = setInterval(() => {
+      i += Math.ceil(max / 60);
+      el.innerText = i >= max ? max : i;
+      if (i >= max) clearInterval(interval);
+    }, 30);
+  }
+  animate('count1', 1250000);
+  animate('count2', 85000);
+  animate('count3', 10200);
+</script>
+
+</body>
+</html>
